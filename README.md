@@ -2,7 +2,7 @@
 ---
 ### [Basic_part](Basic_part/):
 基础算法与数据结构实现：
-- 1. [常用排序算法](Basic_part/1-排序.ipynb)  
+- [常用排序算法](Basic_part/1-排序.ipynb)  
 > 1  排序算法综述  
 > 2  冒泡排序Bubble Sort  
 > 3  选择排序Selection Sort  
