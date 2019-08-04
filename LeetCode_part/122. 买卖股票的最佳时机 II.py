@@ -28,6 +28,14 @@
 链接：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 """
+# 121, 122, 123, 309, 188, 714
+# 121: 只买卖1次
+# 122：无数次
+# 123：2次，只能有一份股票
+# 309：冷却1天
+# 188：交易最多k次
+# 714：加上交易手续费
+
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         # res = 0
