@@ -4,7 +4,7 @@
 示例:
 
 输入: [10,9,2,5,3,7,101,18]
-输出: 4 
+输出: 4
 解释: 最长的上升子序列是 [2,3,7,101]，它的长度是 4。
 说明:
 
@@ -22,19 +22,34 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
+        # DP
         if not nums: return 0
 
         res = 0
         length = len(nums)
         # dp状态集合：存储最长上升子序列长度
-        dp = [0 for _ in range(length)]
+        dp = [1 for _ in range(length)]
 
-        for i in range(1, length):
+        for i in range(length):
             for j in range(i):
                 if nums[j] < nums[i]:
+                    # + 1：加上dp[i]自己
                     # 遍历j时，取最大的dp[i]
-                    dp[i] = max(dp[i], dp[j])
-            # + 1：加上dp[i]自己
-            res = max(res, dp[i]) + 1
+                    dp[i] = max(dp[i], dp[j] + 1)
+
+            res = max(res, dp[i])
 
         return res
+
+
+        # 二分法
+        if not nums: return 0
+
+        length = len(nums)
+        res = []
+        for i in range(length):
+            index_to_add = binary_search(res, nums[i])
+            if index_to_add == len(res):
+                res.append(nums[i])  # 最大直接添加
+            else:
+                res[index_to_add] = nums[i]  # 替换第一个
