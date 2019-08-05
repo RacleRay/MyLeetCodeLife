@@ -22,28 +22,38 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        # DP
-        if not nums: return 0
+        # # DP
+        # if not nums: return 0
 
-        res = 0
-        length = len(nums)
-        # dp状态集合：存储最长上升子序列长度
-        dp = [1 for _ in range(length)]
+        # res = 0
+        # length = len(nums)
+        # # dp状态集合：存储最长上升子序列长度
+        # dp = [1 for _ in range(length)]
 
-        for i in range(length):
-            for j in range(i):
-                if nums[j] < nums[i]:
-                    # + 1：加上dp[i]自己
-                    # 遍历j时，取最大的dp[i]
-                    dp[i] = max(dp[i], dp[j] + 1)
+        # for i in range(length):
+        #     for j in range(i):
+        #         if nums[j] < nums[i]:
+        #             # + 1：加上dp[i]自己
+        #             # 遍历j时，取最大的dp[i]
+        #             dp[i] = max(dp[i], dp[j] + 1)
 
-            res = max(res, dp[i])
+        #     res = max(res, dp[i])
 
-        return res
+        # return res
 
 
         # 二分法
         if not nums: return 0
+
+        def binary_search(alist, target):
+            start, end = 0, len(alist)
+            while start < end:
+                mid = start  + (end - start)  // 2
+                if alist[mid] < target:
+                    start  = mid + 1
+                else:
+                    end = mid
+            return start
 
         length = len(nums)
         res = []
@@ -53,3 +63,8 @@ class Solution(object):
                 res.append(nums[i])  # 最大直接添加
             else:
                 res[index_to_add] = nums[i]  # 替换第一个
+
+        return len(res)
+
+a = Solution()
+a.lengthOfLIS([2,2])
