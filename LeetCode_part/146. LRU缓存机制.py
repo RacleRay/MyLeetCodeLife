@@ -60,7 +60,7 @@ class LRUCache(object):
             if self.remain > 0:
                 self.remain -= 1
             else:
-                self.dic.popitem(last=False)  # LIFO
+                self.dic.popitem(last=False)  # FIFO
 
         self.dic[key] = value
 
