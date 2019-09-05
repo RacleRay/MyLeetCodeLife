@@ -19,6 +19,7 @@ def partition(alist, left, right):
     while equal_pivot < greater_than_pivot:
 
         if alist[equal_pivot] < pivot:
+            # 注意less_than_pivot + 1
             alist[equal_pivot], alist[less_than_pivot + 1] = \
                 alist[less_than_pivot + 1], alist[equal_pivot]
             equal_pivot += 1
@@ -28,6 +29,7 @@ def partition(alist, left, right):
             equal_pivot += 1
 
         else:
+            # 注意greater_than_pivot - 1
             alist[equal_pivot], alist[greater_than_pivot - 1] = \
                 alist[greater_than_pivot - 1], alist[equal_pivot]
             greater_than_pivot -= 1
