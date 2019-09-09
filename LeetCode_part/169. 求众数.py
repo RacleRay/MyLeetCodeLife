@@ -30,12 +30,13 @@ class Solution(object):
                 return i
         return None
 
+    def majorityElement_2(self, nums):
         # 排序
         nums.sort()
         return nums[len(nums)//2]  # 总是存在的条件下
 
     # 分治
-    def majorityElement(self, nums, low=0, high=None):
+    def majorityElement_3(self, nums, low=0, high=None):
         def majority_element_rec(low, high):
             # base case; the only element in an array of size 1 is the majority
             # element.
