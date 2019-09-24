@@ -1,6 +1,6 @@
 # MyLeetCodeLife
 ---
-### [DataStructure&Algorithms_Coursera](DataStructure&Algorithms_Coursera/):
+### [DataStructure&Algorithms_Coursera Python](DataStructure&Algorithms_Coursera/):
 略有难度的编程练习，主要是没有参考，完成的进度稍慢。算法基本自主完成，题目在文件中pdf文件。
 后续继续完成专项的编程训练。
 
