@@ -67,6 +67,15 @@ def reverse_3(head):
         cur = next  # next loop
 
 
+def reverse_print(firstNode):
+
+    if firstNode is None:
+        return
+
+    reverse_print(firstNode.next)
+    print(firstNode.data)
+
+
 if __name__ == '__main__':
     head = LNode(None)
     head.next = None
