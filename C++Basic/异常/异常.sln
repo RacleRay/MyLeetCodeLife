@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "异常", "异常\异常.vcxproj", "{E23D093E-492A-416E-A3F0-58D4A2499976}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E23D093E-492A-416E-A3F0-58D4A2499976}.Debug|x64.ActiveCfg = Debug|x64
+		{E23D093E-492A-416E-A3F0-58D4A2499976}.Debug|x64.Build.0 = Debug|x64
+		{E23D093E-492A-416E-A3F0-58D4A2499976}.Debug|x86.ActiveCfg = Debug|Win32
+		{E23D093E-492A-416E-A3F0-58D4A2499976}.Debug|x86.Build.0 = Debug|Win32
+		{E23D093E-492A-416E-A3F0-58D4A2499976}.Release|x64.ActiveCfg = Release|x64
+		{E23D093E-492A-416E-A3F0-58D4A2499976}.Release|x64.Build.0 = Release|x64
+		{E23D093E-492A-416E-A3F0-58D4A2499976}.Release|x86.ActiveCfg = Release|Win32
+		{E23D093E-492A-416E-A3F0-58D4A2499976}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5965C8DE-6FAC-435C-8682-1C9135156A87}
+	EndGlobalSection
+EndGlobal
