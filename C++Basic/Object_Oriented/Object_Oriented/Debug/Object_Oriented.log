@@ -1,0 +1,55 @@
+﻿  class.cpp
+  内存空间.cpp
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\内存空间.cpp(24,8): error C2371: “p”: 重定义；不同的基类型
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\内存空间.cpp(19): message : 参见“p”的声明
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\内存空间.cpp(74,7): error C2374: “p”: 重定义；多次初始化
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\内存空间.cpp(70): message : 参见“p”的声明
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\内存空间.cpp(83,7): error C2374: “p0”: 重定义；多次初始化
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\内存空间.cpp(81): message : 参见“p0”的声明
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\内存空间.cpp(84,7): error C2374: “p0”: 重定义；多次初始化
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\内存空间.cpp(81): message : 参见“p0”的声明
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\内存空间.cpp(85,7): error C2374: “p0”: 重定义；多次初始化
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\内存空间.cpp(81): message : 参见“p0”的声明
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\内存空间.cpp(86,7): error C2374: “p0”: 重定义；多次初始化
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\内存空间.cpp(81): message : 参见“p0”的声明
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\内存空间.cpp(87,7): error C2374: “p0”: 重定义；多次初始化
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\内存空间.cpp(81): message : 参见“p0”的声明
+  列表初始化成员变量.cpp
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\列表初始化成员变量.cpp(54,15): error C2011: “Person”:“struct”类型重定义
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\列表初始化成员变量.cpp(20): message : 参见“Person”的声明
+  命名空间.cpp
+  声明与实现分离.cpp
+  多态.cpp
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\多态.cpp(93,12): error C2084: 函数“int main(void)”已有主体
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\多态.cpp(20): message : 参见“main”的前一个定义
+  对象内存管理.cpp
+  封装.cpp
+  成员变量初始化.cpp
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\成员变量初始化.cpp(28,9): warning C4101: “person”: 未引用的局部变量
+  构造函数.cpp
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\构造函数.cpp(40,9): warning C4930: “Person person2(void)”: 未调用原型函数(是否是有意用变量定义的?)
+  析构函数.cpp
+  父类的构造函数.cpp
+  继承.cpp
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\继承.cpp(39,15): error C2011: “Person”:“struct”类型重定义
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\继承.cpp(7): message : 参见“Person”的声明
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\继承.cpp(43,16): error C2011: “Student”:“struct”类型重定义
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\继承.cpp(14): message : 参见“Student”的声明
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\继承.cpp(47,30): error C2504: “Student”: 未定义基类
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\继承.cpp(55,11): error C2039: “m_age”: 不是“GoodStudent”的成员
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\继承.cpp(47): message : 参见“GoodStudent”的声明
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\继承.cpp(56,10): error C2039: “m_no”: 不是“GoodStudent”的成员
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\继承.cpp(47): message : 参见“GoodStudent”的声明
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\继承.cpp(60,20): error C2039: “m_age”: 不是“GoodStudent”的成员
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\继承.cpp(47): message : 参见“GoodStudent”的声明
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\继承.cpp(61,19): error C2039: “m_no”: 不是“GoodStudent”的成员
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\继承.cpp(47): message : 参见“GoodStudent”的声明
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\继承.cpp(65,15): error C2079: “person”使用未定义的 struct“Person”
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\继承.cpp(68,13): error C2079: “stu”使用未定义的 struct“Student”
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\继承.cpp(106,14): warning C4099: “Person”: 类型名称以前使用“struct”现在使用的是“class”
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\继承.cpp(106): message : 参见“Person”的声明
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\继承.cpp(122,15): warning C4099: “Student”: 类型名称以前使用“struct”现在使用的是“class”
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\继承.cpp(122): message : 参见“Student”的声明
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\继承.cpp(129,19): error C2011: “GoodStudent”:“struct”类型重定义
+D:\VisualStudioCode\C++Class\Object_Oriented\Object_Oriented\继承.cpp(47): message : 参见“GoodStudent”的声明
+  正在生成代码...
