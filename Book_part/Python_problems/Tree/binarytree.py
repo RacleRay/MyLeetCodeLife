@@ -13,5 +13,5 @@ class BinaryTreeNode:
     """
     def __init__(self, data=None, leftChild=None, rightChild=None):
         self.data = data
-        self.leftChild = None
-        self.rightChild = None
+        self.leftChild = leftChild
+        self.rightChild = rightChild
