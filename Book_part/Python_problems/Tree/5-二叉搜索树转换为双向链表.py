@@ -45,16 +45,18 @@ if __name__ == "__main__":
     array = [i for i in range(1, 8)]
 
     root = Solution.array_to_tree(array)
-    Solution.convert(root)
+
+    solution = Solution()
+    solution.convert(root)
 
     print('正向遍历：')
-    cur = Solution.pHead
+    cur = solution.pHead
     while cur != None:
         print(cur.data, end='')
         cur = cur.rightChild
 
     print('\n' + '后向遍历：')
-    cur = Solution.pHead
+    cur = solution.pEnd
     while cur != None:
         print(cur.data, end='')
         cur = cur.leftChild
