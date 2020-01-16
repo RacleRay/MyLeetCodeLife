@@ -50,16 +50,15 @@ def get_number(root, node, num):
     num -- root结点编号
     """
     if root is None:
-        return False
+        return None
 
     if root == node:
-        return True
+        return num
 
-    nonlocal num
     num *= 2
     # node在左子树中
     if get_number(root.leftChild, node, num):
-        return True
+        return num
     else:
         num += 1
         return get_number(root.rightChild, node, num)
@@ -74,7 +73,7 @@ def get_node(root, num):
         return root
 
     # 结点编号对应的二进制位数
-    lens = math.log(num) // math.log(2)
+    lens = int(math.log(num) // math.log(2))
 
     # 去掉最左边的1，剩下的数字，每个0代表左孩子，1代表右孩子
     num -= 1 << lens
@@ -93,8 +92,8 @@ def find_parent_node_2(root, node1, node2):
     num_1 = 1
     num_2 = 1
 
-    get_number(root, node1, num_1)
-    get_number(root, node2, num_2)
+    num_1 = get_number(root, node1, num_1)
+    num_2 = get_number(root, node2, num_2)
 
     while num_1 != num_2:
         if num_1 > num_2:
@@ -105,6 +104,25 @@ def find_parent_node_2(root, node1, node2):
     return get_node(root, num_1)
 
 
+############# 方法三 ###############
+def find_by_post_order(root, node1, node2):
+    if root is None or root == node1 or root == node2:
+        return root
+
+    leftChild = find_by_post_order(root.leftChild, node1, node2)
+    rightChild = find_by_post_order(root.rightChild, node1, node2)
+
+    # 左子树没有共父节点
+    if leftChild is None:
+        return rightChild
+    # 右子树没有共父节点
+    elif rightChild is None:
+        return leftChild
+    else:
+        return root
+
+
+###################################
 def array_to_tree(array):
     if len(array) == 0:
         return None
@@ -126,7 +144,17 @@ if __name__ == '__main__':
     node1 = root.leftChild.leftChild.leftChild
     node2 = root.leftChild.rightChild
 
-    co_parent = find_parent_node_2(root, node1, node2)
+    co_parent = find_parent_node(root, node1, node2)
+
+    co_parent_2 = find_parent_node_2(root, node1, node2)
+
+    co_parent_3 = find_by_post_order(root, node1, node2)
 
     if co_parent:
         print(co_parent.data)
+
+    if co_parent_2:
+        print(co_parent_2.data)
+
+    if co_parent_3:
+        print(co_parent_3.data)
