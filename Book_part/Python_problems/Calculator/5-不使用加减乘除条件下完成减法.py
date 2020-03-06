@@ -25,9 +25,10 @@ def sub2(num1, num2):
         num1 ^= same
         num2 ^= same
 
-        # 临时结果：相同的1已经减去
+        # 临时结果：相同的1已经减去，剩下的情况当num1对应位置为1，num2为0，相减之后为1
+        #                                     当num2对应位置为1，num1为0，相减之后为1，但是需要向num2为1的左边一位借1
         num1 |= num2
-        # 借位carry
+        # 借位carry：当借位为0，结果就是num1
         num2 <<= 1
         if num2 == 0:
             return num1
