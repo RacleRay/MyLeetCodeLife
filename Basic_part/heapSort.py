@@ -46,7 +46,7 @@ class MaxHeap():
 
         return result
 
-    def _shiftDown(self,index):
+    def _shiftDown(self, index):
         """首端元素（index==1）下沉到MaxHeap中正确位置"""
         while index * 2 <= self.count:
             # init
@@ -148,9 +148,9 @@ def heapSort_3(alist):
         alist[index] = value
 
     n = len(alist)
-    index = (n - 1 - 1) // 2  # shiftDown中循环条件为index * 2 + 1 < n
+    index = (n - 1 - 1) // 2
     # alist >>> max heap
-    while index > 0:
+    while index >= 0:
         shiftDown(alist, n, index)
         index -= 1
 
