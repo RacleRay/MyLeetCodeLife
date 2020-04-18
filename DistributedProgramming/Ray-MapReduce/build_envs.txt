@@ -1,0 +1,36 @@
+
+实验部署：
+
+Ray 环境配置:
+
+  - 配置Conda
+
+     $ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+
+     $ sh Miniconda3-latest-Linux-x86_64.sh
+
+  - 安装Ray
+
+     $ conda create --name ray
+
+     $ conda activate ray
+
+     $ pip install ray
+
+
+Ray 集群搭建:
+
+  - 部署Redis服务(下面假设部署在localhost:6379)
+
+  - 选择任意一台主机作为Master启动 ray start --head --ip localhost --redis-port=6379 
+
+  - 在集群其他机器上启动 ray start --address=localhost:6379
+
+
+Wiki数据：
+
+  - 下载 wget https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles-multistream9.xml-p1791081p2336422.bz2
+
+  - 使用WikiExtractor解析
+
+   $ python WikiExtractor.py -o /data enwiki-latest-pages-articles-multistream9.xml-p1791081p2336422.bz2
