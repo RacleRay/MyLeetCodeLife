@@ -1,4 +1,4 @@
-# MyLeetCodeLife
+# Code
 ### C++
 - [C++ Basic](C++Basic/)
 
