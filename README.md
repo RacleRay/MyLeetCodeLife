@@ -1,15 +1,20 @@
 # MyLeetCodeLife
----
-### [DataStructure&Algorithms_Coursera Python](DataStructure&Algorithms_Coursera/):
+### C++
+- [C++ Basic](C++Basic/)
 
----
-### [Basic_part](Basic_part/):
-- [常用排序算法](Basic_part/1-排序.ipynb)  
+### Python
+- [数据库: MySQL、Redis、MongoDB](DataBaseCoding/)
+- [爬虫](PythonSpider/)
+- [分布式编程](DistributedProgramming/)
 
----
+### Scala
+- [Scala Basic](ScalaBasic/)
 
-### [LeetCode_part](LeetCode_part/):
-
----
-### [Python_Practice_part](Book_part/Python_problems):
-
+### DataStructure & Algorithms:
+- [排序](Sort/); [排序算法对比](Basic_part/1-排序.ipynb)
+- [图搜索basic](Basic_part/迷宫寻路/)
+- [图搜索](Graph/)
+- [Leet Code](LeetCode_part/)
+- [Interview Code](Book_part/Python_problems/)
+- [Book: Efficent Algorithm](Book_part/Efficient_Algorithm/)
+- [Coursera DataStructure&Algorithms Course](DataStructure&Algorithms_Coursera/)
