@@ -22,14 +22,9 @@ def editDistance(str1, str2, weight):
     while i < len1 + 1:
         j = 1  # str2
         while j < len2 + 1:
-            if str1[i - 1] == str2[j - 1]:
-                dRecord[i][j] = min(dRecord[i - 1][j] + 1,
-                                    dRecord[i][j - 1] + 1,
-                                    dRecord[i - 1][j - 1])
-            else:
-                dRecord[i][j] = min(dRecord[i - 1][j] + 1,
-                                    dRecord[i][j - 1] + 1,
-                                    dRecord[i - 1][j - 1] + weight)
+            dRecord[i][j] = min(dRecord[i - 1][j] + 1,
+                                dRecord[i][j - 1] + 1,
+                                dRecord[i - 1][j - 1] + weight * int(str1[i - 1] != str2[j - 1]))
             j += 1
         i += 1
 
