@@ -25,7 +25,7 @@ def number_of_strongly_connected_components(adj):
         order.append(v)
 
     visited = [0] * len(adj)
-    order = [0] * len(adj)
+    order = []
     for v in range(len(adj_inverse)):
         if not visited[v]:
             exploreForOrder(adj_inverse, v)
