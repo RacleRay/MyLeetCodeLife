@@ -14,7 +14,7 @@ using namespace std;
 
 namespace racledomain {
     template<typename T, typename Cmp=std::less<T>>
-    class heap {
+    class Heap {
     private:
         vector<T> data_;
         Cmp cmp;
@@ -45,10 +45,9 @@ namespace racledomain {
         void siftDown(int idx) {
             int leftChild = getLeftChild(idx);
             while (leftChild < data_.size()) {
-                if (leftChild + 1 < data_.size() && cmp(data_[j + 1], data_[j]))
-                    int maxChild = leftChild + 1;
-                else
-                    int maxChild = leftChild;
+                int maxChild = leftChild;
+                if (leftChild + 1 < data_.size() && cmp(data_[leftChild + 1], data_[leftChild]))
+                    maxChild = leftChild + 1;
                 if (cmp(data_[idx], data_[maxChild])) break;  // parent is smaller, can`t down more
                 swap(idx, maxChild);  // parent is bigger
                 idx = maxChild;  // tracking the element
@@ -81,15 +80,15 @@ namespace racledomain {
             data_[j] = tmp;
         };
 
-        int getParent(int idx) { return (idx - 1) / 2 };
+        int getParent(int idx) { return (idx - 1) / 2; };
 
-        int getLeftChild(int idx) { return 2 * idx + 1 };
+        int getLeftChild(int idx) { return 2 * idx + 1; };
 
-        int getRightChild(int idx) { return 2 * idx + 2 };
+        int getRightChild(int idx) { return 2 * idx + 2; };
 
         void getData(vector <T> &data) { data = data_; };
 
-        int getSize{return data_.size();};
+        int getSize() { return data_.size(); };
 
         T top() { return data_[0]; };
 
@@ -97,7 +96,7 @@ namespace racledomain {
     };
 
 
-    template<typename T, typename cmp=std::less<T>>
+    template<typename T, typename Cmp=std::less<T>>
     class priority_queue {
     private:
         Heap <T, Cmp> heap;
@@ -108,13 +107,7 @@ namespace racledomain {
 
         void push(T value) { heap.push(value); };
 
-        T top()(
-
-        return heap.
-
-        top();
-
-        );
+        T top() { return heap.top(); };
 
         void pop() { heap.pop(); }
 
