@@ -7,6 +7,9 @@
 - [爬虫](PythonSpider/)
 - [分布式编程](DistributedProgramming/)
 
+### Go
+- [简单分布式爬虫](Go/simpleCrawler/)
+
 ### Scala
 - [Scala Basic](ScalaBasic/)
 
