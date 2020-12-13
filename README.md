@@ -1,6 +1,7 @@
 # Code
 ### C++
 - [C++ Basic](C++Basic/)
+- [C++ code demos](C++Demos/)
 
 ### Python
 - [数据库: MySQL、Redis、MongoDB](DataBaseCoding/)
