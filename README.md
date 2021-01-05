@@ -2,6 +2,9 @@
 ### C++
 - [C++ Basic](C++Basic/)
 - [C++ code demos](C++Demos/)
+  - [qt game demo](C++Demos/CoinGame)
+  - [贪吃蛇](C++Demos/贪吃蛇)
+  - [simple http](C++Demos/httpServer)
 
 ### Python
 - [数据库: MySQL、Redis、MongoDB](DataBaseCoding/)
