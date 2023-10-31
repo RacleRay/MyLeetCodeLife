@@ -1,0 +1,128 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.18"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "reflection",
+					"jsonFile" : "directory-reflection-Debug-f634a62e86484a3de2fe.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.18"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "reflection",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "STL",
+					"jsonFile" : "directory-STL-Debug-dd957237b263ae44f1ef.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.18"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "STL",
+					"targetIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "main",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "main::@320ca9c7805bd304a686",
+					"jsonFile" : "target-main-Debug-60462a66bf5502b70351.json",
+					"name" : "main",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "test_array::@7610b3261832d332e325",
+					"jsonFile" : "target-test_array-Debug-fa7b18cc1da531858e6b.json",
+					"name" : "test_array",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "test_function::@7610b3261832d332e325",
+					"jsonFile" : "target-test_function-Debug-1c6071a40151c53f358a.json",
+					"name" : "test_function",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "test_unique::@7610b3261832d332e325",
+					"jsonFile" : "target-test_unique-Debug-c41e1ce92c4d711f4238.json",
+					"name" : "test_unique",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "test_vector::@7610b3261832d332e325",
+					"jsonFile" : "target-test_vector-Debug-15d0121fd76b6b0253a1.json",
+					"name" : "test_vector",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/racle/Dev/CodeSpace/C++HeiKeJi/build",
+		"source" : "/home/racle/Dev/CodeSpace/C++HeiKeJi"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
