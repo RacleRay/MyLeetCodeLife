@@ -3,6 +3,7 @@
 #include <iostream>
 #include <GL/gl.h>
 #include <GLFW/glfw3.h>
+#include <unistd.h>
 
 
 /**
@@ -120,7 +121,7 @@ NOINLINE void check_gl_error(const char *filename, int lineno, const char *expr)
 #define STR2(x) #x
 #define STR(x) STR2(x)
 #define PRINT(x, ...) do { \
-    printf(__FILE_NAME__ ":" STR(__LINE__) ": " x __VA_OPT__(,) __VA_ARGS__); \
+    printf(__FILE__ ":" STR(__LINE__) ": " x __VA_OPT__(,) __VA_ARGS__); \
 } while (0)
 
 #define SHOW(x) PRINT(#x " = %d\n", x)
@@ -131,7 +132,7 @@ int main() {
     PRINT("hello, world\n");
     PRINT("answer is %d\n", 42);
     PRINT("diploma is %d + %d\n", 985, 211);
-    return 0;
+    // return 0;
 
     if (!glfwInit()) {
         return -1;
@@ -142,6 +143,7 @@ int main() {
         return -1;
     }
     glfwMakeContextCurrent(window);
+    sleep(5);
 
     while (!glfwWindowShouldClose(window)) {
         CHECK_GL(glClear(GL_COLOR_BUFFER_BIT));
