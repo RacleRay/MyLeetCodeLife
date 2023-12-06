@@ -10,54 +10,71 @@
 using namespace std;
 
 
+// 最小生成树：从源点开始，从源点到其他点的距离最小，并且不连通
+// Prim 结合二叉堆优化 O((E + V)logV)，斐波那契堆可以更优化
+// 适合稠密图
+
+
 struct node {
-    int e, v;
-    bool operator< (const node& b) const {
-        return this->v > b.v;
+    int end, weight;
+    bool operator< (const node& oth) const {
+        return this->weight > oth.weight;
     }
 };
 
 struct edge {
-    int e, v, next;
+    int end, weight, next;
 };
 
 edge edg[200005];
-int n, m, edg_cnt, ans, mark[100005], cnt, head[100005];
+int nnodes, medges, edg_cnt, ans, cnt;
+int mark[100005], head[100005];
 
-void add_edge(int a, int b, int c) {
-    edg[edg_cnt].e = b;
-    edg[edg_cnt].v = c;
-    edg[edg_cnt].next = head[a];
-    head[a] = edg_cnt++;
+// 链式前向星存储：相同 head（begin node）的边连成一个链表存储，head 中存储头节点（头插法生成的链表）
+// edg_cnt 作为在 edg 数组中找到边的 index
+void add_edge(int begin, int end, int weight) {
+    edg[edg_cnt].end = end;
+    edg[edg_cnt].weight = weight;
+    edg[edg_cnt].next = head[begin];
+    head[begin] = edg_cnt++;
 }
 
 int main(int argc, char *argv[]) {
     memset(head, -1, sizeof(head));
-    cin >> n >> m;
-    for (int i = 0; i < m; i++) {
-        int a, b, c;
-        cin >> a >> b >> c;
-        add_edge(a, b, c);
-        add_edge(b, a, c);
+
+    cin >> nnodes >> medges;
+    for (int i = 0; i < medges; i++) {
+        int begin, end, weight;
+        cin >> begin >> end >> weight;
+        add_edge(begin, end, weight);
+        add_edge(end, begin, weight);
     }
 
+    // 每次取当前可遍历但是未遍历的边中，权值最小的边（实际上是遍历点）
     priority_queue<node> que;
-    que.push((node){(n/4 == 0 ? 1: n/4), 0});
+    // 选择初始起点
+    que.push((node){(nnodes / 4 == 0 ? 1: nnodes / 4), 0});
+    
     while (!que.empty()) {
         node tmp = que.top();
         que.pop();
-        if (mark[tmp.e] == 1) continue;
-        mark[tmp.e] = 1;
-        ans += tmp.v;
+
+        if (mark[tmp.end] == 1) continue;  // 只关心未遍历的可达节点
+        
+        mark[tmp.end] = 1;
+        ans += tmp.weight;
         cnt++;
-        if (cnt == n) {
+        
+        if (cnt == nnodes) {
             cout << ans << endl;
             return 0;
         }
-        for (int i = head[tmp.e]; i != -1; i = edg[i].next) {
-            int e = edg[i].e, v = edg[i].v;
-            if (mark[e] == 0)
-                que.push((node){e, v});
+        
+        for (int i = head[tmp.end]; i != -1; i = edg[i].next) {
+            int end = edg[i].end;
+            int weight = edg[i].weight;
+            if (mark[end] == 0)
+                que.push((node){end, weight});
         }
     }
     

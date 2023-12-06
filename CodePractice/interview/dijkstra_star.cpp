@@ -5,63 +5,74 @@
     > Created Time: 
  ************************************************************************/
 
-#include<iostream>
+#include <iostream>
 #include <queue>
 #include <cstring>
 using namespace std;
 
 struct node {
-    int now, dist;
-    bool operator< (const node& b) const {
-        return this->dist > b.dist;
+    int pos, dist;
+    bool operator< (const node& end) const {
+        return this->dist > end.dist;
     }
 };
 
 struct edge {
-    int e, v, next;
+    int end, weight, next;
 };
 
-int n, m, s, edg_cnt, head[100005], ans[100005];
+int nnodes, medges, startnode, edg_cnt, head[100005], dist_from_st[100005];
 edge edg[200005];
 
-void add_edg(int a, int b, int c) {
-    edg[edg_cnt].e = b;
-    edg[edg_cnt].v = c;
-    edg[edg_cnt].next = head[a];
-    head[a] = edg_cnt++;
+// 使用邻接表和链式前向星结构储存图
+// 链式前向星存储：相同 head（begin node）的边连成一个链表存储，head 中存储头节点（头插法生成的链表）
+// edg_cnt 作为在 edg 数组中找到边的 index
+void add_edg(int start, int end, int weight) {
+    edg[edg_cnt].end = end;
+    edg[edg_cnt].weight = weight;
+    // 记录共用一个start节点的边，如何何回溯找到上一条边
+    edg[edg_cnt].next = head[start];
+    head[start] = edg_cnt++;
 }
 
 int main(int argc, char *argv[]) {
     memset(head, -1, sizeof(head));
-    memset(ans, 0x3F, sizeof(ans));
-    cin >> n >> m >> s;
-    for (int i = 0; i < m; i++) {
-        int a, b, c;
-        cin >> a >> b >> c;
-        add_edg(a, b, c);
-        add_edg(b, a, c);
+    memset(dist_from_st, 0x3F, sizeof(dist_from_st));
+    cin >> nnodes >> medges >> startnode;
+    for (int i = 0; i < medges; i++) {
+        int start, end, weight;
+        cin >> start >> end >> weight;
+        add_edg(start, end, weight);
+        add_edg(end, start, weight);
     }
 
     priority_queue<node> que;
-    que.push((node){s, 0});
-    ans[s] = 0;
+    que.push((node){startnode, 0});
+    dist_from_st[startnode] = 0;
+
     while (!que.empty()) {
         node tmp = que.top();
         que.pop();
-        if (ans[tmp.now] < tmp.dist) continue;
-        for (int i = head[tmp.now]; i != -1; i = edg[i].next) {
-            int e = edg[i].e, v = edg[i].v;
-            if (ans[e] > tmp.dist + v) {
-                ans[e] = tmp.dist + v;
-                que.push((node){e, ans[e]});
+
+        if (dist_from_st[tmp.pos] < tmp.dist) continue;
+        
+        // 只遍历有相同start节点的边，避免重复遍历
+        for (int i = head[tmp.pos]; i != -1; i = edg[i].next) {
+            int end = edg[i].end;
+            int weight = edg[i].weight;
+
+            if (dist_from_st[end] > tmp.dist + weight) {
+                dist_from_st[end] = tmp.dist + weight;
+                que.push((node){end, dist_from_st[end]});
             }
         }
     }
-    for (int i = 1; i <= n; i++) {
-        if (ans[i] == 0x3F3f3f3f) {
+
+    for (int i = 1; i <= nnodes; i++) {
+        if (dist_from_st[i] == 0x3F3f3f3f) {
             cout << -1 << endl;
         } else {
-            cout << ans[i] << endl;
+            cout << dist_from_st[i] << endl;
         }
     }
  
