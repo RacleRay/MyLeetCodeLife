@@ -32,6 +32,7 @@ public:
             std::cout << "queue is full" << std::endl;
             return false;
         }
+        // 该用法在 C++17 以上已经废弃，使用 construct_at : https://en.cppreference.com/w/cpp/memory/construct_at
         std::allocator<T>::construct(m_data + m_tail, std::forward<Args>(args)...);
         m_tail = (m_tail + 1) % m_size;
         return true;
