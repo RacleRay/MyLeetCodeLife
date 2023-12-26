@@ -24,8 +24,7 @@ public:
         return rotateArray[0];
     }
 
-    // 效率并没有提升
-    int minNumberInRotateArray(vector<int> &rotateArray)
+    int minNumberInRotateArray2(vector<int> &rotateArray)
     {
         if (rotateArray.size() == 0)
             return 0;

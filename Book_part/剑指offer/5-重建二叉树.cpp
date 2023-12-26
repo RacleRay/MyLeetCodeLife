@@ -8,13 +8,15 @@ using namespace std;
 
 /**
  * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
  */
+
+ struct TreeNode {
+     int val;
+     TreeNode *left;
+     TreeNode *right;
+     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ };
+ 
 class Solution
 {
 public:
@@ -38,7 +40,7 @@ public:
         return root;
     }
 
-    TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder)
+    TreeNode *buildTree2(vector<int> &preorder, vector<int> &inorder)
     {
         unordered_map<int, int> umap;
         for (int i = 0; i < inorder.size(); ++i)

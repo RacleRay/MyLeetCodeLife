@@ -13,6 +13,7 @@ public:
         int col = matrix[0].size();
         int row = matrix.size();
 
+        // 找个大小变化相反的位置，要么向小要么向大
         int colIndex = col - 1;
         int rowIndex = 0;
         while (colIndex >= 0 && rowIndex < row)
@@ -27,7 +28,7 @@ public:
         return false;
     }
 
-    bool findNumberIn2DArray(vector<vector<int>> &matrix, int target)
+    bool findNumberIn2DArray2(vector<vector<int>> &matrix, int target)
     {
         if (matrix.empty() || matrix[0].empty())
             return false;
