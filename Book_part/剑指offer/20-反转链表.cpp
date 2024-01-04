@@ -11,17 +11,21 @@
 
 using namespace std;
 
+
 /**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
+Definition for singly-linked list.
+*/
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+};
+
+
 class Solution
 {
 public:
+    // 头插法
     ListNode *reverseList(ListNode *head)
     {
         if (head == nullptr || head->next == nullptr)
@@ -29,7 +33,7 @@ public:
 
         ListNode dummy = ListNode(0);
 
-        ListNode *pre = &(ListNode(0));
+        ListNode *pre = &(dummy);
         ListNode *cur = nullptr;
         ListNode *tmp = nullptr;
 
@@ -48,7 +52,8 @@ public:
         return pre->next;
     }
 
-    ListNode *reverseList(ListNode *head)
+    // 三节点迭代
+    ListNode *reverseList2(ListNode *head)
     {
         if (head == nullptr || head->next == nullptr)
             return head;

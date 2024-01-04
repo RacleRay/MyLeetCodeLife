@@ -31,3 +31,28 @@ public:
         return res;      
     }
 };
+
+
+int lengthOfLongestSubstring(string s) {
+    std::array<bool, 256> char_map{false};
+
+    size_t len = s.size();
+    size_t tail = 0;
+    int res = 0;
+    for (size_t i = 0; i < len; ++i) {
+        while (tail < len && char_map[s[tail]] == false) {
+            char_map[s[tail]] = true;
+            tail++;
+        }
+
+        res = std::max(res, (int)(tail - i));
+        char_map[s[i]] = false;
+    }
+
+    return res;
+}
+
+
+int main() {
+
+}

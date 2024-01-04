@@ -13,6 +13,10 @@ using namespace std;
 class Solution
 {
 public:
+    // 一步可以跳 1 到 n 级，那么选择跳的级数后，每种情况是互斥的，不会同时发生
+    // 所以 f(n) = f(n-1) + f(n-2) + ... + f(1) + f(0)
+    // f(n) = 2 * f(n-1)
+    // f(n) = 2^(n-1)
     int numWays(int n)
     {
         if (n==0) return 1;

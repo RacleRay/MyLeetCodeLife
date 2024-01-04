@@ -19,7 +19,7 @@ public:
         int first = 1, second = 2, total = -1;
         for (int i = 3; i <= n; i++)
         {
-            total = (first + second) % 1000000007;
+            total = (first + second) % 1'000'000'007;
             first = second;
             second = total;
         }

@@ -32,7 +32,8 @@ public:
         return temp;
     }
 
-    vector<int> exchange(vector<int> &nums)
+    // 不能保证相对位置不变
+    vector<int> exchange1(vector<int> &nums)
     {
         int low = 0;
         int high = nums.size() - 1;
@@ -48,7 +49,8 @@ public:
         return nums;
     }
 
-    vector<int> exchange(vector<int> &nums)
+    // 不保证偶数顺序的解法
+    vector<int> exchange2(vector<int> &nums)
     {
         int low = 0;  // 下一个奇数出现时，应该所在的位置
         int high = 0; // 最近还没有排序的奇数
@@ -62,7 +64,7 @@ public:
     }
 
     // slower
-    vector<int> exchange(vector<int> &nums)
+    vector<int> exchange3(vector<int> &nums)
     {
         vector<int> temp(nums.size(), 0);
         int oddIndex = 0, evenIndex = 0;
@@ -77,4 +79,22 @@ public:
             nums[oddIndex + i] = temp[i];
         return nums;
     }
+
+    void reorder(vector<int>& array) {
+        int len = array.size();
+        if (len <= 1) {
+            return ;
+        }
+
+        for (int i = 0; i < len; i++) {
+            for (int j = len - 1; j > i; j--) {
+                if (((array[j] & 1) == 1) && ((array[j - 1] & 1) == 0)) {
+                    swap(array[j], array[j - 1]);
+                }
+            }
+        }
+
+        return;
+    } 
+
 };

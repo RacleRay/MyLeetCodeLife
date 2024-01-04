@@ -6,6 +6,7 @@
 #include <unordered_map>
 #include <cmath>
 #include <bitset>
+#include <memory>
 
 using namespace std;
 
@@ -18,12 +19,12 @@ public:
         return bits.count();
     }
 
-    int hammingWeight(uint32_t n)
+    int hammingWeight2(uint32_t n)
     {
         int res = 0;
         while (n > 0)
         {
-            n = n & (n - 1); //最右边一个1变成0
+            n &= (n - 1);  // 最右边一个 1 变成 0
             res++;
         }
         return res;

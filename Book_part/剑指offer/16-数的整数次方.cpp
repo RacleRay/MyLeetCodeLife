@@ -22,6 +22,7 @@ public:
         long exp = n; // 注意是long
         if (n < 0)
             exp *= -1;
+        
         while (exp != 0)
         {
             if (((exp & 1) == 1))
