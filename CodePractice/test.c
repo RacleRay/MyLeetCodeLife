@@ -25,6 +25,17 @@ union uu {
 };
 
 
+
+void func(int *a, int n) {
+    n = n / 4 * 4;
+    a = (int*)__builtin_assume_+
+    for (int i = 0; i < n; ++i) {
+        a[i] = i;
+    }
+}
+
+
+
 int main() {
     int cc = 10;
 
