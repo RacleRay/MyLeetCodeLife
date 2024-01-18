@@ -26,23 +26,32 @@ public:
         return root;
     }
 
-    TreeNode *helper(vector<int>& preorder, vector<int>& inorder, int pre_start, int pre_end,
-        int in_start, int in_end) {
-        if (in_start > in_end || pre_start > pre_end) return nullptr;
+    TreeNode *helper(vector<int>& preorder, vector<int>& inorder, int pre_start, int pre_end, int in_start, int in_end) {
+        if (in_start > in_end || pre_start > pre_end) { 
+            return nullptr;
+        }
 
         TreeNode* root = new TreeNode(preorder[pre_start]);
-        if (pre_start == pre_end) return root;
+        if (pre_start == pre_end) {
+            return root;
+        }
 
         int idx = in_start;
         while (preorder[pre_start] != inorder[idx]) {
             idx++;
         }
 
+        int left_part_start = pre_start + 1;
+        int left_part_end = pre_start + 1 + ((idx - 1) - in_start);
+
+        int right_part_start = left_part_end + 1;
+        int right_part_end = pre_end;
+
         root->left = helper(preorder, inorder, 
-                            pre_start + 1, pre_start + 1 + idx - 1 - in_start, 
+                            left_part_start, left_part_end, 
                             in_start, idx - 1);
         root->right = helper(preorder, inorder, 
-                            pre_start + 1 + idx - 1 - in_start + 1, pre_end, 
+                            right_part_start, right_part_end, 
                             idx + 1, in_end);
         
         return root;
