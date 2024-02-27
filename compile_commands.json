@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/racle/CodeSpace/build",
+  "command": "/usr/sbin/clang++   -g -std=gnu++20 -fcoroutines-ts -o CMakeFiles/co_await_example.dir/co_await_example.cpp.o -c /home/racle/CodeSpace/C++Coroutines/co_await_example.cpp",
+  "file": "/home/racle/CodeSpace/C++Coroutines/co_await_example.cpp",
+  "output": "CMakeFiles/co_await_example.dir/co_await_example.cpp.o"
+}
+]
