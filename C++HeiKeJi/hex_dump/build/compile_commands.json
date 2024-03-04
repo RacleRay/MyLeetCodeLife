@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/racle/CodeSpace/C++HeiKeJi/hex_dump/build",
+  "command": "/usr/sbin/clang++  -I/home/racle/CodeSpace/C++HeiKeJi/hex_dump/build/_deps/range-v3-src/include -I/home/racle/CodeSpace/C++HeiKeJi/hex_dump/build/_deps/cxxopts-src/include -g -std=gnu++20 -o CMakeFiles/hexdump.dir/hex_dump.cpp.o -c /home/racle/CodeSpace/C++HeiKeJi/hex_dump/hex_dump.cpp",
+  "file": "/home/racle/CodeSpace/C++HeiKeJi/hex_dump/hex_dump.cpp",
+  "output": "CMakeFiles/hexdump.dir/hex_dump.cpp.o"
+}
+]
