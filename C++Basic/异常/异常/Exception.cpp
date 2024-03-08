@@ -56,8 +56,8 @@ void func2() throw() {
 
 }
 
-// 只抛出int、double类型异常
-void func3() throw(int, double) {
+
+void func3() noexcept(false) {
 
 }
 
@@ -84,7 +84,7 @@ public:
 	}
 };
 
-int divide(int a, int b) throw(Exception){
+int divide2(int a, int b) noexcept(false){
 	if (b == 0) throw DivideException();
 	return a / b;
 }

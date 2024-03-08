@@ -3,14 +3,13 @@ using namespace std;
 
 template <typename Item>
 class Array {
-	friend ostream& operator<< <>(ostream&, const Array<Item>&);
+	friend ostream& operator<<(ostream&, const Array<Item>&);
 	int m_size = 0;
 	int m_capacity = 0;
 	Item* m_data = NULL;
 public:
 	Array(int capacity);
 	~Array();
-	~Array;
 	void add(Item value);
 	Item get(int index);
 	int size();
@@ -74,7 +73,7 @@ void Array<Item>::display() {
 }
 
 template <class Item>
-ostream& operator<< <>(ostream& cout, const Array<Item>& array) {
+ostream& operator<<(ostream& cout, const Array<Item>& array) {
 	cout << "[";
 	for (int i = 0; i < array.m_size; i++) {
 		cout << array.m_data[i];
