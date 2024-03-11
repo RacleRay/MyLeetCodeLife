@@ -16,19 +16,20 @@ Thumbs.db
 *.log
 
 # 忽略缓存和临时文件
-/.cache/
-*/.cache/
-/.tmp/
-/tmp/
+# /.cache/
+.cache/
+.tmp/
+tmp/
 
 # 忽略依赖管理工具生成的目录
-/node_modules/
-/bower_components/
+node_modules/
+bower_components/
 
 # 忽略构建输出目录
-/build/
-*/build/
-/dist/
+# /build/
+build/
+dist/
+target/
 
 # 忽略配置文件
 .env
@@ -51,3 +52,4 @@ Thumbs.db
 # 忽略其他自定义文件和目录
 perf.data
 compile_commands.json
+

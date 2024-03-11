@@ -28,12 +28,13 @@ fn main() {
     let v2 = v1;
     println!("{}, {}", v1, v2); // 成立
 
-
     // 函数调用中的变化
-    let s = String::from("hello");  // s 进入作用域
+    let s = String::from("hello"); // s 进入作用域
+    println!("s {s}");
 
-    let ret: String = takes_ownership(s);  // s 的值移动到函数里 ...
-                                    // ... 所以到这里不再有效
+    let ret: String = takes_ownership(s); // s 的值移动到函数里 ...
+    println!("ret: {}", ret);
+    // ... 所以到这里不再有效
 
     let x = 5;                      // x 进入作用域
 

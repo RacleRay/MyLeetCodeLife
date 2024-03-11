@@ -8,46 +8,41 @@ use crossterm::event::{Event, KeyCode};
 use crossterm::terminal::{EnterAlternateScreen, LeaveAlternateScreen};
 use crossterm::{event, terminal, ExecutableCommand};
 
-use AirWardInTerm::{render, frame};
 use AirWardInTerm::invaders::Invaders;
 use AirWardInTerm::player::Player;
+use AirWardInTerm::{frame, render};
 
-
-fn main() -> Result <(), Box<dyn Error>> {
-
+fn main() -> Result<(), Box<dyn Error>> {
     println!("Hello, world!");
-    
+
     // Terminal
     let mut stdout = io::stdout();
     terminal::enable_raw_mode()?;
     stdout.execute(EnterAlternateScreen)?; //into sub screen
     stdout.execute(Hide)?;
-    
 
-    // render to the sub terminal in a new thread and using channel to 
+    // render to the sub terminal in a new thread and using channel to
     // put frames waiting for rendering.
     let (render_sender, render_receiver) = mpsc::channel();
-    let render_thread = thread::spawn(
-        move | | {
-            let mut out = io::stdout();
-            let mut last_frame = frame::new_frame();
-            // render
-            // init background
-            render::render(&mut out, &last_frame, &last_frame,  true);
-            loop {
-                let cur_frame = match render_receiver.recv() {
-                    Ok(x) => x,
-                    Err(_) => break,
-                };
-                // render on the previous frame. unforce to change.
-                render::render(&mut out, &last_frame, &cur_frame, false);
-                last_frame = cur_frame;
-            }
+    let render_thread = thread::spawn(move || {
+        let mut out = io::stdout();
+        let mut last_frame = frame::new_frame();
+        // render
+        // init background
+        render::render(&mut out, &last_frame, &last_frame, true);
+        loop {
+            let cur_frame = match render_receiver.recv() {
+                Ok(x) => x,
+                Err(_) => {
+                    break;
+                }
+            };
+            // render on the previous frame. unforce to change.
+            render::render(&mut out, &last_frame, &cur_frame, false);
+            last_frame = cur_frame;
         }
-    );
+    });
 
-
-    
     let mut player = Player::new();
     let mut instant = Instant::now();
     let mut invaders = Invaders::new();
@@ -93,7 +88,7 @@ fn main() -> Result <(), Box<dyn Error>> {
         if invaders.reached_bottom() {
             break 'gameloop;
         }
-    };
+    }
 
     // resource recycle
     drop(render_sender);
