@@ -1,0 +1,13 @@
+# workspace = { members = ["test_file"] }
+# workspace = { members = ["test_iter"] }
+[package]
+name = "ex_1"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+test_iter ={ path = "test_iter" }
+test_file ={ path = "test_file" }
+async-std ={version="1.12.0", features=["attributes"]}
