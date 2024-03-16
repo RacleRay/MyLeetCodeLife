@@ -6,6 +6,7 @@
 
 #include "MemoryPool.h"
 #include "StackAlloc.hpp"
+#include "SGIPool.hpp"
 
 
 #define ELEMS 1000000
@@ -45,6 +46,8 @@ int main() {
 
   /* Use MemoryPool */
   StackAlloc< int, MPL::MemoryPool<int> > stackPool;
+  // SGIallocator : 效果基本就是和 std::allocator 一样
+  // StackAlloc< int, SGIallocator<int> > stackPool;
   start = clock();
   for (int j = 0; j < REPS; j++) {
     assert(stackPool.empty());
