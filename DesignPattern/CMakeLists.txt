@@ -8,3 +8,5 @@ set(CMAKE_CXX_STANDARD 20)
 project(main LANGUAGES CXX)
 
 add_executable(produce_consumer ./produce_consumer.cpp)
+add_executable(factory ./factory.cpp)
+add_executable(abstract_factory ./abstract_factory.cpp)
