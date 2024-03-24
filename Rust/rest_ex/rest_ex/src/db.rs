@@ -1,11 +1,10 @@
-use crate::error_handler::CustomError;
+use crate::err_handler::CustomError;
 use diesel::pg::PgConnection;
 use diesel::r2d2::ConnectionManager;
 use diesel_migrations::embed_migrations;
 use lazy_static::lazy_static;
 use r2d2;
 use std::env;
-
 
 type Pool = r2d2::Pool<ConnectionManager<PgConnection>>;
 pub type DbConnection = r2d2::PooledConnection<ConnectionManager<PgConnection>>;
@@ -17,7 +16,7 @@ lazy_static! {
         let db_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
         let manager = ConnectionManager::<PgConnection>::new(db_url);
         Pool::new(manager).expect("Failed to create pool.")
-    }
+    };
 }
 
 
