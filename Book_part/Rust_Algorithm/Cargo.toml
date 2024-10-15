@@ -1,0 +1,19 @@
+[workspace]
+resolver = "2"
+members = [ "cash-num", "data-structure", "hano","num2str"]
+
+[profile.release]
+opt-level = 3
+
+[profile.dev]
+opt-level = 0
+
+[profile.test]
+opt-level = 0
+
+[profile.bench]
+opt-level = 3
+
+[workspace.dependencies]
+num2str = { path = "num2str" }
+data-structure = { path = "data-structure" }
